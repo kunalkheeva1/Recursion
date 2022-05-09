@@ -1,16 +1,15 @@
 import java.util.Scanner;
-
 public class Recursion {
     public static void print(int n){
         if(n==0){
             return;
-        }else{
-            System.out.println(n);
-            print(n-1);
         }
+        System.out.print(n+ " ");
+            print(n-1);
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter your input to be reversed: ");
         int input =sc.nextInt();
         print(input);
 
