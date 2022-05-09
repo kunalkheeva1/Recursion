@@ -2,11 +2,10 @@ import java.util.Scanner;
 public class Recursion {
     public static void print(int n, int m,int sum){
         if(n==m+1){
-            sum+=n-1;
             System.out.println("\nYour sum of the sequence is: "+sum);
             return;
         }
-        sum+=n-1;
+        sum+=n;
         System.out.print(n +" ");
             print(n+1,m,sum);  //added the maximum limit in the recursion with anther parameter m as input.
     }
