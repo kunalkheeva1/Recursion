@@ -1,13 +1,19 @@
 public class Recursion {
-    public static int calcfactorial(int n){
-        if(n==0||n==1){
-            return 1;
+
+    public static void fib(int a, int b, int n){
+        if(n==0){
+            return;
+        }else{
+            int c = a+b;
+            System.out.println(c);
+            fib(b,c,n-1);
         }
-        int fact = calcfactorial(n-1);
-        int factans= n*fact;
-        return factans;
     }
     public static void main(String[] args) {
-        System.out.println(calcfactorial(5));
+        int a=0, b=1,n=7;
+        System.out.println(a+ "\n"+b);
+        fib(a,b,n-2);
+
+
     }
 }
