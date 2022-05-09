@@ -1,21 +1,13 @@
-import java.util.Scanner;
 public class Recursion {
-    public static void print(int n, int m,int sum){
-        if(n==m+1){
-            System.out.println("\nYour sum of the sequence is: "+sum);
-            return;
+    public static int calcfactorial(int n){
+        if(n==0||n==1){
+            return 1;
         }
-        sum+=n;
-        System.out.print(n +" ");
-            print(n+1,m,sum);  //added the maximum limit in the recursion with anther parameter m as input.
+        int fact = calcfactorial(n-1);
+        int factans= n*fact;
+        return factans;
     }
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter your input to get the ascending list: ");
-        int input =sc.nextInt();
-        System.out.println("Please enter your maximum limit: ");
-        int input2= sc.nextInt();
-        print(input,input2,0);
-
+        System.out.println(calcfactorial(5));
     }
 }
