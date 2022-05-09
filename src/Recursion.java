@@ -11,7 +11,8 @@ public class Recursion {
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int in
+        int input =sc.nextInt();
+        print(input);
 
     }
 }
