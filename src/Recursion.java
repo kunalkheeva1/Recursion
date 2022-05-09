@@ -1,11 +1,14 @@
 import java.util.Scanner;
 public class Recursion {
-    public static void print(int n, int m){
+    public static void print(int n, int m,int sum){
         if(n==m+1){
+            sum+=n-1;
+            System.out.println("\nYour sum of the sequence is: "+sum);
             return;
         }
-        System.out.print(n+ " ");
-            print(n+1,m);  //added the maximum limit in the recursion with anther parameter m as input.
+        sum+=n-1;
+        System.out.print(n +" ");
+            print(n+1,m,sum);  //added the maximum limit in the recursion with anther parameter m as input.
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -13,7 +16,7 @@ public class Recursion {
         int input =sc.nextInt();
         System.out.println("Please enter your maximum limit: ");
         int input2= sc.nextInt();
-        print(input,input2);
+        print(input,input2,0);
 
     }
 }
