@@ -1,17 +1,17 @@
 public class Recursion {
-    public static double power(double x, int y){
-        if(x==0){
-            return 0;
-        }else if(y==0){
-            return 1;
-        }else{
-            double powm1= power(x,y-1);
-            double getting = x*powm1;
-            return getting;
-        }
+    public static void towerOfHanoi(int n, String src, String helper, String dest){
+    if(n==1){
+        System.out.println("Transfer of disk " +n +" from "+ src +" to "+dest);
+        return;
+    }
+
+        towerOfHanoi(n-1,src,dest,helper);
+        System.out.println("Transfer of n disk "+n+" from " +src+" to "+ dest);
+        towerOfHanoi(n-1,helper,src,dest);
+
     }
     public static void main(String[] args) {
-        System.out.println(power(2,5));
+        towerOfHanoi(5,"S","H","D");
 
     }
 }
