@@ -1,17 +1,24 @@
 public class Recursion {
-    public static boolean checkArr(int[] num,int idx){
-        if(idx==num.length-1){
-            return true;
-        }
-        if(num[idx]<num[idx+1]){
-            return checkArr(num, idx+1);
+    public static void checkNo(String str, int idx, int count, String newstr){
+        if(idx==str.length()){
+           for(int i=0; i<count; i++){
+               newstr+='x';
+           }
+           System.out.println(newstr);
+           return;
+       }
+
+        char currentchar = str.charAt(idx);
+        if(currentchar=='x'){
+            count++;
+            checkNo(str,idx+1,count,newstr);
         }else{
-            return false;
+            newstr+=currentchar;
+            checkNo(str, idx+1, count, newstr);
         }
     }
     public static void main(String[] args) {
-        int[] arr ={2,3,5};
-        System.out.println( checkArr(arr,0));
+        checkNo("Kxuxnxasxlllx",0,0,"");
 
     }
 }
