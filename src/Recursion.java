@@ -1,26 +1,17 @@
 public class Recursion {
-    static int first =-1;
-    static int last = -1;
-    public static void occurance(String str, int idx, char element){
-        if(idx==str.length()){
-            System.out.println(first);
-            System.out.println(last);
-            return;
+    public static boolean checkArr(int[] num,int idx){
+        if(idx==num.length-1){
+            return true;
         }
-
-        char current= str.charAt(idx);
-        if(current== element){
-            if(first==-1){
-                first =idx;
-            }else{
-                last=idx;
-            }
+        if(num[idx]<num[idx+1]){
+            return checkArr(num, idx+1);
+        }else{
+            return false;
         }
-        occurance(str,idx+1,element);
     }
     public static void main(String[] args) {
-        occurance("Kunaaal",0,'a');
-
+        int[] arr ={2,3,5};
+        System.out.println( checkArr(arr,0));
 
     }
 }
