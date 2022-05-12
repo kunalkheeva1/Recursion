@@ -1,19 +1,17 @@
 public class Recursion {
-
-    public static void fib(int a, int b, int n){
-        if(n==0){
-            return;
+    public static double power(double x, int y){
+        if(x==0){
+            return 0;
+        }else if(y==0){
+            return 1;
         }else{
-            int c = a+b;
-            System.out.println(c);
-            fib(b,c,n-1);
+            double powm1= power(x,y-1);
+            double getting = x*powm1;
+            return getting;
         }
     }
     public static void main(String[] args) {
-        int a=0, b=1,n=7;
-        System.out.println(a+ "\n"+b);
-        fib(a,b,n-2);
-
+        System.out.println(power(2,5));
 
     }
 }
