@@ -31,13 +31,24 @@ public class Recursion {
        //horizontal
        int horizontal = pathTiles(n-1,m);
        //vertical
-       int vertical = pathTiles(n-1,m);
+       int vertical = pathTiles(n-m,m);
        return horizontal+vertical;
-
    }
+
+   //creating function to call the guests either single or in pairs.
+    public static int guestsCall(int n){
+       if(n<=1){
+           return 1;
+       }
+
+       //when they are single
+        int way1= guestsCall(n-1);
+        //and the rest of them are in pairs
+        int way2= (n-1)*guestsCall(n-2);
+        return way1+way2;
+
+    }
     public static void main(String[] args) {
-
-        System.out.println(pathTiles(4,3));
-
+        System.out.println(guestsCall(5));
     }
 }
