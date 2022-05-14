@@ -1,17 +1,22 @@
 public class Recursion {
-    public static void print(String str, String end){
-    if(str.length()==0){
-        System.out.println(end);
-        return;
-    }
-        for(int i=0; i<str.length(); i++){
-           char current= str.charAt(i);
-           String substr= str.substring(0,i)+str.substring(i+1);
-           print(substr, end+current);
-        }
-    }
+   public static int pathCalc(int i, int j, int n, int m){
+      if(i==n||j==m){
+          return 0;
+      }
+
+       if(i==n-1&&j==m-1){
+           return 1;
+       }
+       //for the right paths
+       int right= pathCalc(i,j+1,n,m);
+       //for down paths
+       int down= pathCalc(i+1,j,n,m);
+       return right+down;
+
+   }
     public static void main(String[] args) {
-        print("abc","");
+        System.out.println(  pathCalc(0,0,3,3));
+
 
     }
 }
