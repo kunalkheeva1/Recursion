@@ -14,9 +14,30 @@ public class Recursion {
        return right+down;
 
    }
-    public static void main(String[] args) {
-        System.out.println(  pathCalc(0,0,3,3));
 
+
+
+
+   // new method to calculate the paths of the tiles
+   public static int pathTiles(int n, int m){
+
+       if(m==n){
+           return 2; //as it will have only two ways to put then
+       }
+       if(n<m){
+           return 1; // as otherwise it will be exceeding the area boundries
+       }
+
+       //horizontal
+       int horizontal = pathTiles(n-1,m);
+       //vertical
+       int vertical = pathTiles(n-1,m);
+       return horizontal+vertical;
+
+   }
+    public static void main(String[] args) {
+
+        System.out.println(pathTiles(4,3));
 
     }
 }
