@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Recursion {
    public static int pathCalc(int i, int j, int n, int m){
       if(i==n||j==m){
@@ -48,7 +50,29 @@ public class Recursion {
         return way1+way2;
 
     }
+
+
+    //creating another method to track the number of sets with the help of recursion
+
+    public static void findSubset(int n, ArrayList<Integer> subset){
+
+       if(n==0){
+           for(int i=0; i< subset.size(); i++){
+               System.out.print(subset.get(i)+" ");
+           }
+           System.out.println();
+           return;
+       }
+       //add the elements in the set
+        subset.add(n);
+        findSubset(n-1,subset); // here n-1 as the count has already started
+        //now for removing elements form the end to examine other possibilities
+        subset.remove(subset.size()-1);
+        findSubset(n-1, subset);
+
+    }
     public static void main(String[] args) {
-        System.out.println(guestsCall(5));
+       ArrayList<Integer> subset = new ArrayList<>();
+        findSubset(4,subset);
     }
 }
